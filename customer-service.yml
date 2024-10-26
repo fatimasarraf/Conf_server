@@ -1,13 +1,13 @@
- server:
+server:
   port: 8081
 
 spring:
   application:
-    name: customer  # Nom du service client
+    name: customer-service  # Nom du service qui sera enregistré
   datasource:
     username: postgres
-    url: jdbc:postgresql://localhost:5432/customer
-    password: 2024
+    url: jdbc:postgresql://localhost:5433/customer
+    password: 11200228
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -17,16 +17,13 @@ spring:
         format_sql: true
     show-sql: true
 
----
-# Configuration pour le service customer
-spring:
-  application:
-    name: customer-service  # Nom du service qui sera enregistré
   cloud:
+    config:
+      uri: http://localhost:8888  # URL de votre Config Server
     discovery:
       client:
         service-url:
           defaultZone: http://localhost:8761/eureka/
 
   main:
-    web-application-type: reactive        # URL du serveur Eureka
+    web-application-type: reactive
