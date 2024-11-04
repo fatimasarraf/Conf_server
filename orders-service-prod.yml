@@ -11,7 +11,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/order
     username: postgres
-    password: lamaachi
+    password: 2024
 
   jpa:
     hibernate:
